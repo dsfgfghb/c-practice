@@ -32,11 +32,11 @@ void N_queen_baoli(int line)
         int is_ok = 1;
         for (int i = 1; i <= P_n; i++)
         {
-            for (int j = i+1; j <= P_n; j++)
+            for (int j = i + 1; j <= P_n; j++)
             {
                 if (abs(i - j) == abs(P[i] - P[j]))
                 {
-                    is_ok=0;
+                    is_ok = 0;
                     break;
                 }
             }
@@ -90,7 +90,8 @@ void N_queen_huishu(int x)
             IsUsed[i] = 0;
         }
     }
-}LL PturnT(LL x, LL p)
+}
+LL PturnT(LL x, LL p)
 {
     LL y = 0, product = 1;
     while (x != 0)
@@ -159,6 +160,8 @@ string LLToString(LL x)
     return res;
 }
 
+
+
 int main()
 {
     LL a = StringToLL("BCD");
@@ -167,12 +170,12 @@ int main()
     cout << s << z << endl;
     P_n = 5;
     Full_permutation(1);
-    
+
     P_n = 5;
     N_queen_baoli(1);
     cout << QueenSum << endl;
     ;
-    QueenSum=0;
+    QueenSum = 0;
     N_queen_huishu(1);
     cout << QueenSum;
     return 0;
