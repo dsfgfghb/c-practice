@@ -17,7 +17,9 @@ void Eratosthenes(long long n) {          //eratosthenes法求素数
         for(long long j=i+i;j<=n;j+=i){   //把i的倍数都做标记
             p[j]=true;
         }
-        
+    }
+    for(long long i=0;i<k;i++){
+        cout<<prime[i]<<endl;
     }
 }
 
