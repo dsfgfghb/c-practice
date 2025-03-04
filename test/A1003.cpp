@@ -21,11 +21,14 @@ int w[MAX_NODES] = {0};      // weight of shortest path
 int n, m;
 void dijkstra(int s)
 {
-    num[s] = 1;
+    fill(num, num + MAX_NODES, 0);
     fill(dis, dis + MAX_NODES, BIG_NUM);
     fill(vis, vis + MAX_NODES, 0);
     fill(prv, prv + MAX_NODES, -1);
+    fill(w, w + MAX_NODES, 0);
     dis[s] = 0;
+    num[s] = 1;
+    w[s] = weight[s];
     for (int i = 0; i < n; i++)         
     {
         int u = -1, minn = BIG_NUM;
@@ -40,11 +43,15 @@ void dijkstra(int s)
         if (u == -1)
             break;
         vis[u] = 1;
+        if(w[u]==0){
+            w[u] = weight[u];
+        }
         for (int v = 0; v < adj[u].size(); v++)
         {
+
             int j = adj[u][v].v;
             if (!vis[j])
-            {
+            {                                   
                 if (dis[u] + adj[u][v].dis < dis[j])
                 {
                     dis[j] = dis[u] + adj[u][v].dis;
